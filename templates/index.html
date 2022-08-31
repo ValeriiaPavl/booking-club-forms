@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<h2>Welcome to the reading club</h2>
+<p>Here we tell each other about our favourite books</p>
+<button onclick="location.href='/register' " type="button">
+         click here to join</button>
+<p>Current club participants:</p>
+{% if rows %}
+<table>
+  <tr>
+      {% for table_header in table_headers %}
+    <th>{{ table_header }}</th>
+      {% endfor %}
+  </tr>
+    {% for participant in rows %}
+  <tr>
+      {% for value in participant %}
+    <td>{{ value }}</td>
+      {% endfor %}
+  </tr>
+    {% endfor %}
+{% else %}
+    <p>No participants so far. Be the first!</p>
+{% endif %}
+</table>
+
+
+</body>
+</html>
